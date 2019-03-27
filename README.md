@@ -11,12 +11,14 @@ Make sure the following program and packages are installed:
 + pip3
 + [networkx](https://networkx.github.io/)
 + [pygraphviz](https://pygraphviz.github.io/)
++ [pydot](https://github.com/pydot/pydot)
 
 ````
 sudo apt install python3
 sudo apt install python3-pip
 pip3 install networkx
 pip3 install pygraphviz
+pip3 install pydot
 ````
 
 [Pyperplan](https://bitbucket.org/malte/pyperplan/src) is used
