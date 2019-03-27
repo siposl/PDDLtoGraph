@@ -9,7 +9,6 @@ Make sure the following program and packages are installed:
 
 + python3
 + pip3
-+ [pyperplan](https://bitbucket.org/malte/pyperplan/src)
 + [networkx](https://networkx.github.io/)
 + [pygraphviz](https://pygraphviz.github.io/)
 
@@ -20,11 +19,14 @@ pip3 install networkx
 pip3 install pygraphviz
 ````
 
+[Pyperplan](https://bitbucket.org/malte/pyperplan/src) is used
+for grounding, but is already included inside the repository.
+
 ## Usage
 The programm can be started by running **ptg.py**. It has 
-requires two arguments a PDDL domain file and a PDDL problem description.
+requires two arguments; a PDDL domain file and a PDDL problem description.
 ````
-python3 DOMAIN PROBLEM
+python3 ptg.py DOMAIN PROBLEM
 ````
 
 Optional arguments can also be invoked:
@@ -34,15 +36,22 @@ Optional arguments can also be invoked:
   + available levels are: ````{debug,info,warning,error}```` 
 + ````-g, --graphtype````:  choose between the graph types
   + available types are: ````{relatedness,causal,rel_simple}```` 
+  + ````relatedness````: factored problem
+  + ````rel_simple````: lifted problem. Only works with new grounding
 + ````--grounding````:  select wich grounding method is chosen
   + ````original````: pyperplans original grounding
   + ````new````: slightly modified version, without pruning
 + ````-d, --diameter````:  toggle the drawing of diameter length path
   + available options are: ````{true, false}```` 
 
+#### Example
+You can try it out with the two provided example files to create
+a relatedness graph on an elevator problem task.
+````
+python3 ptg.py -g relatedness -d false example/domain.pddl example/f2p1.pddl
+````
 
-
-## Examples
+## Graph Examples
 #### Relatedness Graph
 ![relatedness](./img/img_relatedness.png)
 #### Simplified Relatedness Graph
